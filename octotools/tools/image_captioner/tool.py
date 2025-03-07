@@ -30,7 +30,7 @@ class Image_Captioner_Tool(BaseTool):
             },
         )
         print(f"\nInitializing Image Captioner Tool with model: {model_string}")
-        self.llm_engine = ChatOpenAI(model_string=model_string, is_multimodal=True) if model_string else None
+        self.llm_engine = ChatOpenAI(model_string=model_string, is_multimodal=True, api_base=os.getenv("OPENAI_API_BASE"))
 
     def execute(self, image, prompt="Describe this image in detail."):
         try:
