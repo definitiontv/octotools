@@ -52,7 +52,7 @@ class Generalist_Solution_Generator_Tool(BaseTool):
 
         print(f"\nInitializing Generalist Tool with model: {self.model_string}")
         multimodal = True if image else False
-        llm_engine = ChatOpenAI(model_string=self.model_string, is_multimodal=multimodal)
+        llm_engine = ChatOpenAI(model_string=self.model_string, is_multimodal=multimodal, api_base=os.getenv("OPENAI_API_BASE"))
 
         try:
             input_data = [prompt]

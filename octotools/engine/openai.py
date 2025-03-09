@@ -63,6 +63,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
         
         self.client = OpenAI(
             api_key=os.getenv("OPENAI_API_KEY"),
+            api_base=os.getenv("OPENAI_API_BASE", "https://api.openai.com/v1")
         )
         self.model_string = model_string
         self.is_multimodal = is_multimodal
